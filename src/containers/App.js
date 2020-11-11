@@ -19,16 +19,14 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-
 		fetch("http://jsonplaceholder.typicode.com/users")
 			.then(response => response.json())
 			.then(data => {
 				this.setState({ robots: data });
 			});
-
 	}
 	render() {
-		const {robots, searchField} = this.state;
+		const { robots, searchField } = this.state;
 		const filteredRobots = robots.filter((robot) => {
 			return robot.name.toLowerCase().includes(searchField.toLowerCase()) || robot.email.toLowerCase().includes(searchField.toLowerCase());
 		});
